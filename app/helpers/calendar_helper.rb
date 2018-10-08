@@ -4,10 +4,19 @@ module CalendarHelper
     first = d.wday
     p = Date.new(year, month, -1)
     last = p.day
+        # 前月
+        prev_date = d.prev_month
+        # 翌月
+        next_date = d.next_month
+
     day = 1 - first
     html_tag = <<~EOS
-    <h1>#{year}年#{month}月</h1>
-    <table class="table table-bordered">
+    <h1>
+    <a class="btn btn-default" href="/#{prev_date.year}/#{prev_date.mon}" role="button">&lt;前月</a>
+    #{year}年#{month}月
+    <a class="btn btn-default" href="/#{next_date.year}/#{next_date.mon}" role="button">翌月&gt;</a>
+    </h1>
+    <table class="table table-bordered" style="table-layout:fixed;">
     <tr>
       <th scope="col">日</th>
       <th scope="col">月</th>
