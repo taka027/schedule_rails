@@ -7,6 +7,7 @@ class CalendarController < ApplicationController
                  @year = Date.today.year.to_i
                  @month = Date.today.month.to_i
                end
+               @schedules = Schedule.all
                 render template: 'calendar/index' 
         end
 

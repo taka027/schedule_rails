@@ -1,5 +1,5 @@
 module CalendarHelper
-  def show_tag(year,month)
+  def show_tag(year,month,schedules)
     d = Date.new(year, month, 1)
     first = d.wday
     p = Date.new(year, month, -1)
@@ -25,7 +25,15 @@ module CalendarHelper
           if day <= 0 || day > last
             html_tag += '<td>&nbsp;</td>'
           else
-            html_tag += "<td>#{day}</td>"
+            html_tag += "<td>#{day} "
+	    target = Date.new(year, month, day)
+	    schedules.each {|val|
+	        if val.day == target 
+		    html_tag += "#{val.title} #{val.body}"
+		    break
+		end
+            }
+            html_tag += "</td>"
           end
           day += 1
 
