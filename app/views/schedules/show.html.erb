@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Day:</strong>
-  <%= @schedule.day %>
-</p>
+<table class="table">
+<tr>
+  <td><strong>Day:</strong></td>
+  <td><%= @schedule.day %></td>
+</tr>
 
-<p>
-  <strong>Title:</strong>
-  <%= @schedule.title %>
-</p>
+<tr>
+  <td><strong>Title:</strong></td>
+  <td><%= @schedule.title %></td>
+</tr>
 
-<p>
-  <strong>Body:</strong>
-  <%= @schedule.body %>
-</p>
+<tr>
+  <td><strong>Body:</strong></td>
+  <td><%= @schedule.body %></td>
+</tr>
+</table>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>
