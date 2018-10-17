@@ -38,7 +38,7 @@ module CalendarHelper
 	    target = Date.new(year, month, day)
 	    schedules.each {|val|
 	        if val.day == target 
-		    html_tag += html_escape "#{val.title} #{val.body}"
+		    html_tag += "<a href='/schedules/#{val.id}'>" + html_escape("#{val.title} #{val.body}")+ '</a>'
 		    break
 		end
             }
