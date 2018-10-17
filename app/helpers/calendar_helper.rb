@@ -38,7 +38,7 @@ module CalendarHelper
 	    target = Date.new(year, month, day)
 	    schedules.each {|val|
 	        if val.day == target 
-		    html_tag += "#{val.title} #{val.body}"
+		    html_tag += html_escape "#{val.title} #{val.body}"
 		    break
 		end
             }
@@ -50,7 +50,7 @@ module CalendarHelper
       html_tag += '</tr>'
     end
     html_tag += '</table>'
-    html_tag
+    html_tag.html_safe
   end
 
 end
